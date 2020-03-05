@@ -33,10 +33,10 @@
         $file = @fopen('gs://data_employee/Employees.csv', 'r');
         if (!empty($file)) {
           while (!feof($file)) {
-            $employee = fgets($file);
-            if (!empty($employee)) {
-              $url = "delete?employee=" . $employee;
-              $employee = explode(',', $employee);
+            $line = fgets($file);
+            if (!empty($line) && trim($line) != '') {
+              $employee = explode(',', $line);
+              $url = "delete?employeeId=" . $line;
         ?>
               <tr>
                 <td><?php echo $count; ?></td>
@@ -52,8 +52,9 @@
                   <button class='btn btn-info'>Edit</button>
                 </td>
               </tr>
-        <?php }
-            $count++;
+        <?php
+              $count++;
+            }
           }
         }
         ?>
