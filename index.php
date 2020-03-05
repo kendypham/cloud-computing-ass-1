@@ -53,7 +53,7 @@
                 </td>
               </tr>
         <?php }
-          $count++;
+            $count++;
           }
         }
         ?>
@@ -89,7 +89,12 @@
             </div>
             <div class="form-group row">
               <label for="gender" class="col-5">Gender</label>
-              <input type="text" name="gender" placeholder="Enter" class="col-6">
+              <!-- <input type="text" name="gender" placeholder="Enter" class="col-6"> -->
+              <select class="form-control col-6" id="exampleFormControlSelect1" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
             <div class="form-group row">
               <label for="age" class="col-5">Age</label>

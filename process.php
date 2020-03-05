@@ -14,7 +14,6 @@ function addUser()
         echo "Fields are not empty";
     } else {
         $file = fopen('gs://data_employee/Employees.csv', "w");
-        print_r($file);
         if (!empty($employees)) {
             fwrite($file, $employees);
         }
