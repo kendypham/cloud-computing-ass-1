@@ -24,7 +24,7 @@
         <form action="update" method="POST">
         <div class="form-group row">
             <label for="id" class="col-5">Id</label>
-            <input type="text" name="id" disabled readonly class="col-6" value="<?php echo $id ?>">
+            <input type="text" name="id" readonly class="col-6 form-control" value="<?php echo $id ?>">
         </div>
         <div class="form-group row">
             <label for="first_name" class="col-5">First Name</label>

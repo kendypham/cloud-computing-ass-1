@@ -20,9 +20,9 @@
           <th>Id</th>
           <th>First Name</th>
           <th>Last Name</th>
-          <th>Gender</th>
-          <th>Phone</th>
           <th>Age</th>
+          <th>Gender</th> 
+          <th>Phone</th> 
           <th>Address</th>
           <th>Action</th>
         </tr>
@@ -37,7 +37,7 @@
             if (!empty($line) && trim($line) != '') {
               $employee = explode(',', $line);
               $url = "delete?employeeId=" . $line;
-              $urlEdit = "edit?id=" . $employee[0] ."&first_name=".$employee[1] ."&last_name=".$employee[2] ."&gender=".$employee[3] ."&phone=".$employee[4] ."&age=".$employee[5] ."&address=".$employee[6];
+              $urlEdit = "edit?id=" . $employee[0] ."&first_name=".$employee[1] ."&last_name=".$employee[2] ."&age=".$employee[3] ."&gender=".$employee[4] ."&phone=".$employee[5] ."&address=".$employee[6];
         ?>
               <tr>
                 <td><?php echo $count; ?></td>
