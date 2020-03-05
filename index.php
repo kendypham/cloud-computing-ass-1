@@ -37,6 +37,7 @@
             if (!empty($line) && trim($line) != '') {
               $employee = explode(',', $line);
               $url = "delete?employeeId=" . $line;
+              $urlEdit = "edit?id=" . $employee[0] ."&first_name=".$employee[1] ."&last_name=".$employee[2] ."&gender=".$employee[3] ."&phone=".$employee[4] ."&age=".$employee[5] ."&address=".$employee[6];
         ?>
               <tr>
                 <td><?php echo $count; ?></td>
@@ -49,7 +50,7 @@
                 <td><?php echo $employee[6]; ?></td>
                 <td>
                   <a href="<?php echo $url ?>" class='btn btn-danger mr-2'>Delete</a>
-                  <button class='btn btn-info'>Edit</button>
+                  <a href="<?php echo $urlEdit ?>" class='btn btn-info'>Edit</a>
                 </td>
               </tr>
         <?php
@@ -65,21 +66,18 @@
     Add
   </button>
 
+  <!-- add Modal -->
   <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add user</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <form action="process" method="POST">
-            <!-- <div class="form-group row">
-              <label for="id" class="col-5">Id</label>
-              <input type="text" name="id" placeholder="Enter your Id" class="col-6">
-            </div> -->
             <div class="form-group row">
               <label for="first_name" class="col-5">First Name</label>
               <input type="text" name="first_name" placeholder="Enter your first name" class="col-6">
@@ -90,12 +88,15 @@
             </div>
             <div class="form-group row">
               <label for="gender" class="col-5">Gender</label>
-              <!-- <input type="text" name="gender" placeholder="Enter" class="col-6"> -->
               <select class="form-control col-6" id="exampleFormControlSelect1" name="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
               </select>
+            </div>
+            <div class="form-group row">
+              <label for="phone" class="col-5">Phone</label>
+              <input type="number" name="phone" placeholder="Enter" class="col-6">
             </div>
             <div class="form-group row">
               <label for="age" class="col-5">Age</label>
@@ -104,10 +105,6 @@
             <div class="form-group row">
               <label for="address" class="col-5">Address</label>
               <input type="text" name="address" placeholder="Enter" class="col-6">
-            </div>
-            <div class="form-group row">
-              <label for="phone" class="col-5">Phone</label>
-              <input type="number" name="phone" placeholder="Enter" class="col-6">
             </div>
             <div class="d-flex justify-content-center">
               <button class="btn btn-danger mr-2" data-dismiss="modal">Close</button>

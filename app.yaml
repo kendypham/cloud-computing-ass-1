@@ -7,6 +7,10 @@ handlers:
   script: process.php
 - url: /delete
   script: deleteUser.php 
+- url: /edit
+  script: formEdit.php 
+- url: /update
+  script: updateUser.php 
 - url: /.*
   script: index.php
 
