@@ -34,6 +34,7 @@
         if (!empty($file)) {
           while (!feof($file)) {
             $line = fgets($file);
+            $line = str_replace('"', "", $line);
             if (!empty($line) && trim($line) != '') {
               $employee = explode(',', $line);
               $url = "delete?employeeId=" . $line;

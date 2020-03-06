@@ -21,47 +21,55 @@
     ?>
     <div class="card mx-auto" style="width: 18rem;">
         <div class="card-body">
-        <form action="update" method="POST">
-        <div class="form-group row">
-            <label for="id" class="col-5">Id</label>
-            <input type="text" name="id" readonly class="col-6 form-control" value="<?php echo $id ?>">
-        </div>
-        <div class="form-group row">
-            <label for="first_name" class="col-5">First Name</label>
-            <input type="text" name="first_name" placeholder="Enter your first name" class="col-6" value="<?php echo $first_name ?>">
-        </div>
-        <div class="form-group row">
-            <label for="last_name" class="col-5">Last Name</label>
-            <input type="text" name="last_name" placeholder="Enter your last name" class="col-6" value="<?php echo $last_name ?>">
-        </div>
-        <div class="form-group row">
-            <label for="gender" class="col-5">Gender</label>
-            <select class="form-control col-6" id="exampleFormControlSelect1" name="gender" value="<?php echo  $gender ?>">
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-                <option value="O">Other</option>
-            </select>
-        </div>
-        <div class="form-group row">
-            <label for="phone" class="col-5">Phone</label>
-            <input type="number" name="phone" placeholder="Enter" class="col-6" value="<?php echo $phone ?>">
-        </div>
-        <div class="form-group row">
-            <label for="age" class="col-5">Age</label>
-            <input type="number" name="age" placeholder="Enter" class="col-6" value="<?php echo $age ?>">
-        </div>
-        <div class="form-group row">
-            <label for="address" class="col-5">Address</label>
-            <input type="text" name="address" placeholder="Enter" class="col-6" value="<?php echo $address ?>">
-        </div>
-        <div class="d-flex justify-content-center">
-            <button class="btn btn-danger mr-2" data-dismiss="modal">Close</button>
-            <input type="submit" name="update" class="btn btn-primary">
-        </div>
-    </form>
+            <form action="update" method="POST">
+                <div class="form-group row">
+                    <label for="id" class="col-5">Id</label>
+                    <input type="text" name="id" readonly class="col-6 form-control" value="<?php echo $id ?>">
+                </div>
+                <div class="form-group row">
+                    <label for="first_name" class="col-5">First Name</label>
+                    <input type="text" name="first_name" placeholder="Enter your first name" class="col-6" value="<?php echo $first_name ?>">
+                </div>
+                <div class="form-group row">
+                    <label for="last_name" class="col-5">Last Name</label>
+                    <input type="text" name="last_name" placeholder="Enter your last name" class="col-6" value="<?php echo $last_name ?>">
+                </div>
+                <div class="form-group row">
+                    <label for="gender" class="col-5">Gender</label>
+                    <select class="form-control col-6" id="exampleFormControlSelect1" name="gender">
+                        <?php
+                        if ($gender == 'M') { ?>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Other</option>
+                        <?php } else { ?>
+                            <option value="F">Female</option>
+                            <option value="M">Male</option>
+                            <option value="O">Other</option>
+                        <?php }
+                        ?>
+
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="phone" class="col-5">Phone</label>
+                    <input type="number" name="phone" placeholder="Enter" class="col-6" value="<?php echo $phone ?>">
+                </div>
+                <div class="form-group row">
+                    <label for="age" class="col-5">Age</label>
+                    <input type="number" name="age" placeholder="Enter" class="col-6" value="<?php echo $age ?>">
+                </div>
+                <div class="form-group row">
+                    <label for="address" class="col-5">Address</label>
+                    <input type="text" name="address" placeholder="Enter" class="col-6" value="<?php echo $address ?>">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" name="update" class="btn btn-primary">
+                </div>
+            </form>
         </div>
     </div>
-    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

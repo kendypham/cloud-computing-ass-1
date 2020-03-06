@@ -8,20 +8,19 @@ function updateUser()
     $gender = $_POST['gender'];
     $phone = $_POST['phone'];
     $address = $_POST['address'];
-    // $data = file_get_contents('gs://data_employee/Employees.csv');
     $data = fopen("gs://data_employee/Employees.csv", "r");
     $output = fopen('gs://data_employee/temporary.csv', 'w');
     if ($data) {
         while (($line = fgetcsv($data)) !== false) {
             if ($line[0] == $id) {
-                $line[1] = $first_name;
-                $line[2] = $last_name;
-                $line[3] = $age;
-                $line[4] = $gender;
-                $line[5] = $phone;
-                $line[6] = $address;
+                $line[1] = str_replace('"', "", $first_name);
+                $line[2] = str_replace('"', "", $last_name);
+                $line[3] = str_replace('"', "", $age);
+                $line[4] = str_replace('"', "", $gender);
+                $line[5] = str_replace('"', "", $phone);
+                $line[6] = str_replace('"', "", $address);
             }
-            fputcsv( $output, $line);
+            fputcsv($output, $line);
         }
         fclose($data);
         fclose($output);
